@@ -1,0 +1,423 @@
+body {
+    background: #f7efe3;
+}
+
+.donate-hero {
+    text-align: center;
+    padding: 6rem 2rem;
+}
+
+.donate-hero h1 {
+    font-family: "Cinzel", serif;
+    font-size: 2.8rem;
+    color: #8b5e2f;
+}
+
+.donate-mission,
+.donate-transparency {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.donate-gallery {
+    text-align: center;
+    padding: 4rem 2rem;
+
+}
+
+.gallery-grid {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.donate-gallery h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.gallery-grid img {
+    width: 300px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.donate-box {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.donate-box input {
+    padding: 12px;
+    width: 250px;
+    margin-bottom: 1rem;
+}
+
+.donate-box button {
+    padding: 12px 25px;
+    background: #9b5a2e;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.donate-contact {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.donate-contact button {
+    padding: 10px 20px;
+    background: #8b5e2f;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* ===== WHY WE DO THIS ===== */
+.donate-mission {
+    padding: 5rem 8%;
+    background: #f8f5ef;
+}
+
+.mission-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.mission-image {
+    flex: 1;
+    min-width: 320px;
+}
+
+.mission-image img {
+    width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+.mission-content {
+    flex: 1;
+    min-width: 320px;
+}
+
+.mission-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.mission-content p {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: #444;
+}
+
+/* ===== OUR RECENT SEVA ===== */
+.festival-section {
+    padding: 5rem 8%;
+    background: #ffffff;
+}
+
+.festival-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.festival-content {
+    flex: 1;
+    min-width: 320px;
+}
+
+.festival-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.festival-content p {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: #444;
+    margin-bottom: 2rem;
+}
+
+.festival-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    font-weight: 500;
+}
+
+.festival-image {
+    flex: 1;
+    min-width: 320px;
+}
+
+.festival-image img {
+    width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================= */
+/* DONATE BOX */
+/* ============================= */
+
+.donate-box {
+    background: linear-gradient(135deg, #f9f6f1, #ffffff);
+    padding: 5rem 8%;
+    text-align: center;
+    border-radius: 30px;
+    margin: 4rem auto;
+    max-width: 900px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.06);
+    position: relative;
+}
+
+.donate-box h2 {
+    font-size: 2.6rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+}
+
+/* Quick Amount Buttons */
+
+.quick-amounts {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.quick-amounts button {
+    padding: 0.8rem 1.6rem;
+    border-radius: 30px;
+    border: 1px solid #d4af37;
+    background: transparent;
+    font-weight: 600;
+    background: #f7efe3;
+    color: brown;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quick-amounts button:hover {
+    background: #d4af37;
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+/* Input Field */
+
+.donate-box input {
+    width: 100%;
+    max-width: 500px;
+    padding: 1rem 1.5rem;
+    border-radius: 40px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.donate-box input:focus {
+    border-color: #d4af37;
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15);
+}
+
+/* Donate Button */
+
+.donate-btn {
+    padding: 1rem 2.5rem;
+    border-radius: 40px;
+    border: none;
+    background: linear-gradient(90deg, #b87333, #d4af37);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 15px 35px rgba(184, 115, 51, 0.3);
+}
+
+.donate-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 25px 50px rgba(184, 115, 51, 0.4);
+}
+
+.donate-note {
+    margin-top: 1.5rem;
+    font-style: italic;
+    color: #777;
+    font-size: 0.95rem;
+}
+
+/* ============================= */
+/* TRANSPARENCY SECTION */
+/* ============================= */
+
+.donate-transparency {
+    padding: 5rem 8%;
+    background: #f8f5ef;
+    text-align: center;
+}
+
+.donate-transparency h2 {
+    font-size: 2.4rem;
+    margin-bottom: 2.5rem;
+}
+
+.donate-transparency ul {
+    list-style: none;
+    padding: 0;
+    max-width: 700px;
+    margin: auto;
+}
+
+.donate-transparency li {
+    padding: 1rem;
+    font-size: 1.1rem;
+    background: #ffffff;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease;
+}
+
+.donate-transparency li:hover {
+    transform: translateY(-3px);
+}
+
+/* ============================= */
+/* IMPACT SECTION */
+/* ============================= */
+
+.impact-section {
+    padding: 5rem 8%;
+    text-align: center;
+    background: linear-gradient(135deg, #fffaf3, #f9f6f1);
+}
+
+.impact-section h2 {
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+}
+
+.impact-section p {
+    max-width: 750px;
+    margin: auto;
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: #444;
+}
+
+/* ============================= */
+/* CONTACT SECTION */
+/* ============================= */
+
+.donate-contact {
+    padding: 4rem 8%;
+    text-align: center;
+    background: #ffffff;
+}
+
+.donate-contact h3 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.donate-contact button {
+    padding: 0.9rem 2.2rem;
+    border-radius: 40px;
+    border: none;
+    background: #000;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.donate-contact button:hover {
+    background: #222;
+    transform: translateY(-3px);
+}
+
+/* ============================= */
+/* DONATE HERO SECTION */
+/* ============================= */
+
+.donate-hero {
+    padding: 6rem 8%;
+    text-align: center;
+
+}
+
+/* PREMIUM SHINING HEADING */
+
+.donate-hero h1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+
+    background: linear-gradient(110deg,
+            #3a2c0f 0%,
+            #b87333 20%,
+            #d4af37 40%,
+            #fff4c2 50%,
+            #d4af37 60%,
+            #b87333 80%,
+            #3a2c0f 100%);
+
+    background-size: 300% auto;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    animation: divineShine 8s ease-in-out infinite;
+
+    text-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.3),
+        0 4px 15px rgba(212, 175, 55, 0.15);
+}
+
+/* Smooth Luxury Shine Animation */
+
+@keyframes divineShine {
+    0% {
+        background-position: -200% center;
+    }
+
+    50% {
+        background-position: 200% center;
+    }
+
+    100% {
+        background-position: -200% center;
+    }
+}
+
+/* Paragraph Styling */
+
+.donate-hero p {
+    max-width: 800px;
+    margin: auto;
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: #555;
+}

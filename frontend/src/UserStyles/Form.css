@@ -1,0 +1,400 @@
+/* Full background gradient like reference */
+.form-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2efdd;
+}
+
+/* Main Card */
+.form-content {
+  width: 900px;
+  max-width: 95%;
+  min-height: 420px;
+  background: #ffffff;
+  border-radius: 180px 180px 20px 20px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 42% 58%;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+/* Left Dark Panel (Sharp Angle) */
+.form-content::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 42%;
+  height: 100%;
+  background: linear-gradient(160deg, #2b3045, #1b1f2f);
+  clip-path: polygon(0 0, 85% 0, 70% 100%, 0 100%);
+  z-index: 1;
+}
+
+/* Brand on left */
+.form::before {
+  content: "KING";
+  position: absolute;
+  left: 50px;
+  top: 40px;
+  font-family: "Cinzel", serif;
+  font-size: 22px;
+  letter-spacing: 3px;
+  color: #ffffff;
+  z-index: 2;
+}
+
+/* Form Area */
+.form {
+  grid-column: 2 / 3;
+  padding: 70px 60px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Title */
+.form h2 {
+  text-align: left;
+  font-size: 28px;
+  margin-bottom: 6px;
+  color: #2b3045;
+  font-family: "Cinzel", serif;
+}
+
+/* Inputs – pill shaped */
+.input-group input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 999px;
+  border: 1px solid #ddd;
+  background: #f7f8fb;
+  font-size: 14px;
+  transition: all 0.25s ease;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #ff6fae;
+  box-shadow: 0 0 0 3px rgba(255, 111, 174, 0.25);
+}
+
+/* Button – pink pill */
+.authBtn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 14px;
+  border-radius: 999px;
+  border: none;
+  font-weight: 600;
+  font-size: 15px;
+  color: #fff;
+  background: linear-gradient(135deg, #ff7aa2, #ff9472);
+  box-shadow: 0 10px 25px rgba(255, 122, 162, 0.45);
+  transition: all 0.3s ease;
+}
+
+.authBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(255, 122, 162, 0.55);
+}
+
+/* Links */
+.form-links {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #777;
+}
+
+.form-links a {
+  color: #ff6fae;
+  margin-left: 6px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.form-links a:hover {
+  text-decoration: underline;
+}
+
+/* Avatar */
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid #ff6fae;
+  object-fit: cover;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .form-content {
+    grid-template-columns: 1fr;
+  }
+
+  .form-content::before {
+    width: 100%;
+    height: 140px;
+    clip-path: none;
+  }
+
+  .form {
+    grid-column: 1 / 2;
+    padding: 40px 25px;
+  }
+
+  .form::before {
+    top: 20px;
+    left: 20px;
+    font-size: 18px;
+  }
+}
+
+.form>h2 {
+  margin: 30px 0;
+}
+
+.input-group {
+  margin: 30px 0;
+}
+
+.form>button {
+  margin: 0 0 30px 0;
+}
+
+.headi {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headi>img {
+  height: 100px;
+  width: 100px;
+
+}
+
+.form-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.avatar {
+  height: 700px;
+  width: 350px;
+  z-index: 100;
+  border-radius: 0;
+  border: none;
+}
+
+.form {
+  z-index: 20000;
+}
+
+/* ============================= */
+/* PREMIUM LOGIN BACKGROUND */
+/* ============================= */
+
+.premium-login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top, #fdfaf3, #f3ede2);
+  padding: 2rem;
+}
+
+/* ============================= */
+/* GLASS CARD */
+/* ============================= */
+
+.premium-login-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 3rem 2.5rem;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+/* ============================= */
+/* GOLD HEADING */
+/* ============================= */
+
+.login-heading {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+
+  background: linear-gradient(110deg,
+      #3a2c0f,
+      #d4af37,
+      #fff4c2,
+      #d4af37,
+      #3a2c0f);
+
+  background-size: 300% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  animation: shineText 6s ease-in-out infinite;
+}
+
+.login-subtitle {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 2rem;
+}
+
+/* ============================= */
+/* INPUT STYLE */
+/* ============================= */
+
+.premium-input-group {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.premium-input-group input {
+  width: 100%;
+  padding: 1rem 0.5rem;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  background: transparent;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+.premium-input-group label {
+  position: absolute;
+  left: 5px;
+  top: 14px;
+  font-size: 0.9rem;
+  color: #888;
+  transition: 0.3s ease;
+  pointer-events: none;
+}
+
+.premium-input-group input:focus+label,
+.premium-input-group input:not(:placeholder-shown)+label,
+.premium-input-group input:valid+label {
+  top: -8px;
+  font-size: 0.75rem;
+  color: #d4af37;
+}
+
+/* ============================= */
+/* PREMIUM BUTTON */
+/* ============================= */
+
+.premium-auth-btn {
+  width: 100%;
+  padding: 0.9rem;
+  border-radius: 30px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  background: linear-gradient(90deg, #b87333, #d4af37);
+  color: white;
+
+  transition: 0.4s ease;
+}
+
+.premium-auth-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
+}
+
+/* ============================= */
+/* LINKS */
+/* ============================= */
+
+.login-links {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+}
+
+.login-links a {
+  text-decoration: none;
+  color: #444;
+  transition: 0.3s;
+}
+
+.login-links a:hover {
+  color: #d4af37;
+}
+
+/* ============================= */
+/* ANIMATIONS */
+/* ============================= */
+
+@keyframes shineText {
+  0% {
+    background-position: -200% center;
+  }
+
+  50% {
+    background-position: 200% center;
+  }
+
+  100% {
+    background-position: -200% center;
+  }
+}
+
+/* ============================= */
+/* AVATAR PREVIEW */
+/* ============================= */
+
+.avatar-preview-wrapper {
+  margin: 1.5rem 0;
+}
+
+.premium-avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #d4af37;
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+}
+
+/* ============================= */
+/* FILE UPLOAD */
+/* ============================= */
+
+.file-upload-wrapper {
+  margin-bottom: 2rem;
+}
+
+.file-upload-label {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  background: #000;
+  color: white;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: 0.3s;
+}
+
+.file-upload-label:hover {
+  background: #d4af37;
+}
+
+.file-upload-label input {
+  display: none;
+}
