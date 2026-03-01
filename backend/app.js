@@ -6,21 +6,32 @@ import payment from './routes/paymentRoutes.js';
 import errorHandleMiddleware from './middleware/error.js';
 import cookieParser from 'cookie-parser';
 import fileUpload from 'express-fileupload';
-import dotenv from 'dotenv'
+import cors from 'cors';
+
 const app = express();
 
 // Middleware
-app.use(express.json())
-app.use(cookieParser())
-app.use(fileUpload())
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(fileUpload());
 
-// Route
-app.use("/api/v1", product)
-app.use("/api/v1", user)
-app.use("/api/v1", order)
-app.use("/api/v1", payment)
+// 🔥 IMPORTANT — CORS for production
+app.use(cors({
+    origin: [
+        "http://localhost:5173",
+        "https://stateswad.vercel.app"
+    ],
+    credentials: true
+}));
 
-app.use(errorHandleMiddleware)
-dotenv.config({ path: 'backend/config/config.env' })
+// Routes
+app.use("/api/v1", product);
+app.use("/api/v1", user);
+app.use("/api/v1", order);
+app.use("/api/v1", payment);
+
+// Error Middleware
+app.use(errorHandleMiddleware);
+
 export default app;
