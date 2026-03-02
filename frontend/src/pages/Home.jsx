@@ -141,7 +141,7 @@ function Home() {
                 <div className="signature-card">
                   <img src="./images/khaja.jpg" alt="Bobbatlu" />
                   <div className="signature-overlay">
-                    <h3>BOBBATLU</h3>
+                    <h3>KHAJA</h3>
                     <p>Every bite carries the warmth of home.</p>
                   </div>
                 </div>
@@ -149,15 +149,15 @@ function Home() {
                 <div className="signature-card">
                   <img src="./images/thekua.png" alt="Kalakand" />
                   <div className="signature-overlay">
-                    <h3>KALAKAND</h3>
-                    <p>Where milk transforms into pure joy.</p>
+                    <h3>THEKUWA</h3>
+                    <p>MAKE YOUR DAY VERY TASTY.</p>
                   </div>
                 </div>
 
                 <div className="signature-card">
                   <img src="/images/gujiya.jpg" alt="Kaju Pakoda" />
                   <div className="signature-overlay">
-                    <h3>KAJU PAKODA</h3>
+                    <h3>GUJIYA</h3>
                     <p>Crunch that keeps you coming back.</p>
                   </div>
                 </div>
