@@ -307,11 +307,10 @@ export const googleLoginSuccess = async (req, res) => {
 
     const token = user.getJWTToken();
 
-    res.status(200).json({
-        success: true,
-        token,
-        user,
-    });
+    res.redirect(
+        `https://stateswad.vercel.app/google-success?token=${token}`
+    );
+
 };
 
 
@@ -383,4 +382,8 @@ export const deleteUser = handleAsyncError(async (req, res, next) => {
         message: "User Deleted Successfully",
     });
 });
+
+// GOOGLE LOGIN SUCCESS
+// GOOGLE LOGIN SUCCESS
+
 
