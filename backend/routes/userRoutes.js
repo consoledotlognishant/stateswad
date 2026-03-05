@@ -1,19 +1,76 @@
-import express from 'express';
-import { deleteUser, getSingleUser, getUserDetails, getUsersList, loginUser, logout, registerUser, requestPasswordReset, resetPassword, updatePassword, updateProfile, updateUserRole } from '../controller/userController.js';
-import { roleBasedAccess, verifyUserAuth } from '../middleware/userAuth.js';
+import express from "express";
+import passport from "passport";
+
+import {
+    registerUser,
+    loginUser,
+    logout,
+    requestPasswordReset,
+    resetPassword,
+    getUserDetails,
+    updatePassword,
+    updateProfile,
+    getUsersList,
+    getSingleUser,
+    updateUserRole,
+    deleteUser,
+    googleLoginSuccess,
+    verifyEmail
+} from "../controller/userController.js";
+
+import { verifyUserAuth, roleBasedAccess } from "../middleware/userAuth.js";
+
 const router = express.Router();
 
-router.route("/register").post(registerUser)
-router.route("/login").post(loginUser)
-router.route("/logout").post(logout)
-router.route("/password/forgot").post(requestPasswordReset)
-router.route("/reset/:token").post(resetPassword);
-router.route("/profile").get(verifyUserAuth, getUserDetails);
-router.route("/password/update").put(verifyUserAuth, updatePassword);
-router.route("/profile/update").put(verifyUserAuth, updateProfile);
-router.route("/admin/users").get(verifyUserAuth, roleBasedAccess('admin'), getUsersList);
-router.route("/admin/user/:id")
-    .get(verifyUserAuth, roleBasedAccess('admin'), getSingleUser)
-    .put(verifyUserAuth, roleBasedAccess('admin'), updateUserRole)
-    .delete(verifyUserAuth, roleBasedAccess('admin'), deleteUser)
+
+// AUTH ROUTES
+router.post("/register", registerUser);
+router.post("/login", loginUser);
+router.post("/logout", logout);
+
+
+// EMAIL VERIFICATION
+router.get("/verify-email/:token", verifyEmail);
+
+
+// PASSWORD ROUTES
+router.post("/password/forgot", requestPasswordReset);
+router.post("/reset/:token", resetPassword);
+
+
+// USER PROFILE
+router.get("/profile", verifyUserAuth, getUserDetails);
+router.put("/password/update", verifyUserAuth, updatePassword);
+router.put("/profile/update", verifyUserAuth, updateProfile);
+
+
+// GOOGLE OAUTH
+router.get(
+    "/auth/google",
+    passport.authenticate("google", { scope: ["profile", "email"] })
+);
+
+router.get(
+    "/auth/google/callback",
+    passport.authenticate("google", { session: false }),
+    googleLoginSuccess
+);
+
+
+// ADMIN ROUTES
+router.get(
+    "/admin/users",
+    verifyUserAuth,
+    roleBasedAccess("admin"),
+    getUsersList
+);
+
+router
+    .route("/admin/user/:id")
+    .get(verifyUserAuth, roleBasedAccess("admin"), getSingleUser)
+    .put(verifyUserAuth, roleBasedAccess("admin"), updateUserRole)
+    .delete(verifyUserAuth, roleBasedAccess("admin"), deleteUser);
+
+
 export default router;
+

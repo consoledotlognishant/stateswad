@@ -22,7 +22,7 @@ function Products() {
   const pageFromURL = parseInt(searchParams.get("page"), 10) || 1
   const [currentPage, setCurrentPage] = useState(pageFromURL);
   const navigate = useNavigate();
-  const categories = ["laptop", "mobile", "tv", "fruits", "glass"];
+  const categories = ["Sweet", "Khasta", "Mixture", "Dry Fruits", "Prasad", "Gift"];
 
   useEffect(() => {
     dispatch(getProduct({ keyword, page: currentPage, category }))
@@ -60,7 +60,7 @@ function Products() {
         <div className="products-layout">
           <div className="filter-section">
             <h3 className="filter-heading">CATEGORIES</h3>
-            {/* Render Categories */}
+
             <ul>
               {
                 categories.map((category) => {

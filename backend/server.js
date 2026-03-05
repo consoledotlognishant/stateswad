@@ -1,7 +1,7 @@
 import app from './app.js';
 import dotenv from 'dotenv';
 import { connectMongoDatabase } from './config/db.js';
-dotenv.config();
+
 import { v2 as cloudinary } from 'cloudinary';
 import Razorpay from 'razorpay';
 connectMongoDatabase();

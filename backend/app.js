@@ -7,6 +7,8 @@ import errorHandleMiddleware from './middleware/error.js';
 import cookieParser from 'cookie-parser';
 import fileUpload from 'express-fileupload';
 import cors from 'cors';
+import passport from "./config/passport.js";
+import session from "express-session";
 
 const app = express();
 
@@ -15,6 +17,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(fileUpload());
+app.use(
+    session({
+        secret: "secret",
+        resave: false,
+        saveUninitialized: true,
+    })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 // 🔥 IMPORTANT — CORS for production
 app.use(cors({

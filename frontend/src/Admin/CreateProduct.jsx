@@ -8,8 +8,8 @@ import { createProduct, removeErrors, removeSuccess } from "../features/admin/ad
 import { toast } from "react-toastify";
 
 function CreateProduct() {
-    const {success,loading,error}=useSelector(state=>state.admin);
-    const dispatch=useDispatch();
+  const { success, loading, error } = useSelector(state => state.admin);
+  const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
@@ -18,58 +18,58 @@ function CreateProduct() {
   const [image, setImage] = useState([]);
   const [imagePreview, setImagePreview] = useState([]);
 
-  const categories = ["glass", "shirt", "mobile", "dress", "tv","pant","jacket"];
+  const categories = ["Sweet", "Khasta", "Mixture", "Dry Fruits", "Prasad", "Gift"];
 
-  const createProductSubmit=(e)=>{
+  const createProductSubmit = (e) => {
     e.preventDefault();
-    const myForm=new FormData();
-    myForm.set('name',name);
-    myForm.set('price',price);
-    myForm.set('description',description);
-    myForm.set('category',category);
-    myForm.set('stock',stock);
-    image.forEach((img)=>{
-        myForm.append("image",img)
+    const myForm = new FormData();
+    myForm.set('name', name);
+    myForm.set('price', price);
+    myForm.set('description', description);
+    myForm.set('category', category);
+    myForm.set('stock', stock);
+    image.forEach((img) => {
+      myForm.append("image", img)
     })
     dispatch(createProduct(myForm))
   }
 
-  const createProductImage=(e)=>{
-    const files=Array.from(e.target.files);
-    
+  const createProductImage = (e) => {
+    const files = Array.from(e.target.files);
+
     setImage([]);
     setImagePreview([]);
 
-    files.forEach((file)=>{
-        const reader=new FileReader();
-        reader.onload=()=>{
-            if(reader.readyState===2){
-                setImagePreview((old)=>[...old,reader.result]);
-                setImage((old)=>[...old,reader.result]);
+    files.forEach((file) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        if (reader.readyState === 2) {
+          setImagePreview((old) => [...old, reader.result]);
+          setImage((old) => [...old, reader.result]);
 
-            }
         }
-        reader.readAsDataURL(file)
+      }
+      reader.readAsDataURL(file)
     })
-    
+
   }
-  useEffect(()=>{
-    if(error){
-        toast.error(error,{position:'top-center',autoClose:3000});
-        dispatch(removeErrors())
+  useEffect(() => {
+    if (error) {
+      toast.error(error, { position: 'top-center', autoClose: 3000 });
+      dispatch(removeErrors())
     }
-    if(success){
-        toast.success("Product Created successfully",{position:'top-center',autoClose:3000});
-        dispatch(removeSuccess()) 
-        setName("");
-        setPrice("");
-        setDescription("");
-        setCategory("");
-        setStock("");
-        setImage([]);
-        setImagePreview([]);
+    if (success) {
+      toast.success("Product Created successfully", { position: 'top-center', autoClose: 3000 });
+      dispatch(removeSuccess())
+      setName("");
+      setPrice("");
+      setDescription("");
+      setCategory("");
+      setStock("");
+      setImage([]);
+      setImagePreview([]);
     }
-  },[dispatch,error,success])
+  }, [dispatch, error, success])
   return (
     <>
       <Navbar />
@@ -138,16 +138,16 @@ function CreateProduct() {
             />
           </div>
           <div className="image-preview-container">
-           { imagePreview.map((img,index)=>(
-            <img
-            src={img}
-            alt="Product Preview"
-            className="image-preview"
-            key={index}
-          />
-           ))}
+            {imagePreview.map((img, index) => (
+              <img
+                src={img}
+                alt="Product Preview"
+                className="image-preview"
+                key={index}
+              />
+            ))}
           </div>
-          <button className="submit-btn">{loading?'Creating Product...':'Create'}</button>
+          <button className="submit-btn">{loading ? 'Creating Product...' : 'Create'}</button>
         </form>
       </div>
 
