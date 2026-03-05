@@ -32,6 +32,7 @@ import UsersList from './Admin/UsersList';
 import UpdateRole from './Admin/UpdateRole';
 import OrdersList from './Admin/OrdersList';
 import UpdateOrder from './Admin/UpdateOrder';
+import GoogleSuccess from "./User/GoogleSuccess";
 import ReviewsList from './Admin/ReviewsList';
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/google-success" element={<GoogleSuccess />} />
         <Route path="/" element={<Home />} />
         <Route path="/about-us" element={<About />} />
         <Route path="/donate" element={<Donate />} />

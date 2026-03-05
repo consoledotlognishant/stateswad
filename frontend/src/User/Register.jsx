@@ -55,6 +55,10 @@ function Register() {
         dispatch(register(myForm));
     };
 
+    const googleSignup = () => {
+        window.location.href = "https://stateswad.onrender.com/api/v1/auth/google";
+    };
+
     useEffect(() => {
         if (error) {
             toast.error(error, { position: 'top-center', autoClose: 3000 });
@@ -141,6 +145,14 @@ function Register() {
 
                         <button className="premium-auth-btn" disabled={loading}>
                             {loading ? 'Signing Up...' : 'Sign Up'}
+                        </button>
+
+                        <button
+                            type="button"
+                            className="google-auth-btn"
+                            onClick={googleSignup}
+                        >
+                            Continue with Google
                         </button>
 
                         <div className="login-links">

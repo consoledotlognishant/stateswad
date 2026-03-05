@@ -22,6 +22,9 @@ function Login() {
         e.preventDefault();
         dispatch(login({ email: loginEmail, password: loginPassword }))
     }
+    const googleLogin = () => {
+        window.location.href = "https://stateswad.onrender.com/api/v1/auth/google";
+    };
 
     useEffect(() => {
         if (error) {
@@ -85,6 +88,17 @@ function Login() {
                             {loading ? "Signing In..." : "Sign In"}
                         </button>
 
+                        <div className="divider">
+                            <span>OR</span>
+                        </div>
+
+                        <button
+                            type="button"
+                            className="google-auth-btn"
+                            onClick={googleLogin}
+                        >
+                            Continue with Google
+                        </button>
                         <div className="login-links">
                             <Link to="/password/forgot">Forgot Password?</Link>
                             <span>•</span>
