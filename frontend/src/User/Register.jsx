@@ -146,13 +146,16 @@ function Register() {
                         <button className="premium-auth-btn" disabled={loading}>
                             {loading ? 'Signing Up...' : 'Sign Up'}
                         </button>
-
+                        <div className="divider">
+                            <br />
+                            <span>OR</span>
+                        </div>
                         <button
                             type="button"
                             className="google-auth-btn"
                             onClick={googleSignup}
                         >
-                            Continue with Google
+                            <img className='google-auth-btn-img' src="/images/google.png" alt="" />
                         </button>
 
                         <div className="login-links">

@@ -89,6 +89,7 @@ function Login() {
                         </button>
 
                         <div className="divider">
+                            <br />
                             <span>OR</span>
                         </div>
 
@@ -97,7 +98,7 @@ function Login() {
                             className="google-auth-btn"
                             onClick={googleLogin}
                         >
-                            Continue with Google
+                            <img className='google-auth-btn-img' src="/images/google.png" alt="" />
                         </button>
                         <div className="login-links">
                             <Link to="/password/forgot">Forgot Password?</Link>
