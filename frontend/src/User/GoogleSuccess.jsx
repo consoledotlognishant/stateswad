@@ -32,4 +32,3 @@ function GoogleSuccess() {
 }
 
 export default GoogleSuccess;
-
