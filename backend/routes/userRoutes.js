@@ -23,31 +23,53 @@ import { verifyUserAuth, roleBasedAccess } from "../middleware/userAuth.js";
 const router = express.Router();
 
 
-// AUTH ROUTES
+/*
+==============================
+AUTH ROUTES
+==============================
+*/
 router.post("/register", registerUser);
 router.post("/login", loginUser);
 router.post("/logout", logout);
 
 
-// EMAIL VERIFICATION
+/*
+==============================
+EMAIL VERIFICATION
+==============================
+*/
 router.get("/verify-email/:token", verifyEmail);
 
 
-// PASSWORD ROUTES
+/*
+==============================
+PASSWORD ROUTES
+==============================
+*/
 router.post("/password/forgot", requestPasswordReset);
 router.post("/reset/:token", resetPassword);
 
 
-// USER PROFILE
+/*
+==============================
+USER PROFILE ROUTES
+==============================
+*/
 router.get("/profile", verifyUserAuth, getUserDetails);
 router.put("/password/update", verifyUserAuth, updatePassword);
 router.put("/profile/update", verifyUserAuth, updateProfile);
 
 
-// GOOGLE OAUTH
+/*
+==============================
+GOOGLE OAUTH
+==============================
+*/
 router.get(
     "/auth/google",
-    passport.authenticate("google", { scope: ["profile", "email"] })
+    passport.authenticate("google", {
+        scope: ["profile", "email"]
+    })
 );
 
 router.get(
@@ -57,7 +79,12 @@ router.get(
 );
 
 
-// ADMIN ROUTES
+/*
+==============================
+ADMIN ROUTES
+==============================
+*/
+
 router.get(
     "/admin/users",
     verifyUserAuth,
@@ -67,10 +94,21 @@ router.get(
 
 router
     .route("/admin/user/:id")
-    .get(verifyUserAuth, roleBasedAccess("admin"), getSingleUser)
-    .put(verifyUserAuth, roleBasedAccess("admin"), updateUserRole)
-    .delete(verifyUserAuth, roleBasedAccess("admin"), deleteUser);
+    .get(
+        verifyUserAuth,
+        roleBasedAccess("admin"),
+        getSingleUser
+    )
+    .put(
+        verifyUserAuth,
+        roleBasedAccess("admin"),
+        updateUserRole
+    )
+    .delete(
+        verifyUserAuth,
+        roleBasedAccess("admin"),
+        deleteUser
+    );
 
 
 export default router;
-

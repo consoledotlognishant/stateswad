@@ -34,20 +34,20 @@ import OrdersList from './Admin/OrdersList';
 import UpdateOrder from './Admin/UpdateOrder';
 import GoogleSuccess from "./User/GoogleSuccess";
 import ReviewsList from './Admin/ReviewsList';
+import VerifyEmail from "./User/VerifyEmail";
 
 function App() {
   const { isAuthenticated, user } = useSelector(state => state.user);
   const dispatch = useDispatch()
   useEffect(() => {
-    if (isAuthenticated) {
-      dispatch(loadUser())
-    }
-  }, [dispatch])
+    dispatch(loadUser());
+  }, [dispatch]);
 
   return (
     <Router>
       <Routes>
         <Route path="/google-success" element={<GoogleSuccess />} />
+        <Route path="/verify-email/:token" element={<VerifyEmail />} />
         <Route path="/" element={<Home />} />
         <Route path="/about-us" element={<About />} />
         <Route path="/donate" element={<Donate />} />
@@ -79,6 +79,7 @@ function App() {
         <Route path="/admin/orders" element={<ProtectedRoute element={<OrdersList />} adminOnly={true} />} />
         <Route path="/admin/order/:orderId" element={<ProtectedRoute element={<UpdateOrder />} adminOnly={true} />} />
         <Route path="/admin/reviews" element={<ProtectedRoute element={<ReviewsList />} adminOnly={true} />} />
+        <Route path="*" element={<Home />} />
       </Routes>
       {isAuthenticated && <UserDashboard user={user} />}
     </Router>
