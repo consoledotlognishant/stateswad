@@ -17,10 +17,8 @@ export const registerUser = handleAsyncError(async (req, res, next) => {
 
     const { name, email, password, avatar } = req.body;
 
-    // Check existing user
+    // Check if user exists
     const existingUser = await User.findOne({ email });
-
-
 
     if (existingUser) {
 
@@ -38,6 +36,7 @@ export const registerUser = handleAsyncError(async (req, res, next) => {
     let avatarData = {};
 
     if (avatar) {
+
         const myCloud = await cloudinary.uploader.upload(avatar, {
             folder: "avatars",
             width: 150,
@@ -50,6 +49,7 @@ export const registerUser = handleAsyncError(async (req, res, next) => {
         };
     }
 
+    // Create user
     const user = await User.create({
         name,
         email,
@@ -57,7 +57,7 @@ export const registerUser = handleAsyncError(async (req, res, next) => {
         avatar: avatarData
     });
 
-    // Generate email verification token
+    // Generate verification token
     const verifyToken = user.generateEmailVerifyToken();
 
     await user.save({ validateBeforeSave: false });
@@ -65,35 +65,39 @@ export const registerUser = handleAsyncError(async (req, res, next) => {
     const verifyURL = `https://stateswad.vercel.app/verify-email/${verifyToken}`;
 
     const message = `
-Please verify your email by clicking the link below:
+        <h2>Verify Your Email</h2>
 
-${verifyURL}
+        <p>Welcome to <b>State Swad by Nishant</b>.</p>
 
-This link will expire in 15 minutes.
-`;
+        <p>Please click the button below to verify your email address.</p>
 
-    try {
+        <a href="${verifyURL}" 
+        style="
+        padding:12px 20px;
+        background:#c49a2c;
+        color:white;
+        text-decoration:none;
+        border-radius:5px;
+        font-weight:bold;
+        ">
+        Verify Email
+        </a>
 
-        await sendEmail({
-            email: user.email,
-            subject: "Email Verification",
-            message
-        });
+        <p>This link will expire in 15 minutes.</p>
+    `;
 
-        res.status(200).json({
-            success: true,
-            message: `Verification email sent to ${user.email}`
-        });
+    // Send verification email
+    // Send verification email
+    sendEmail({
+        email: user.email,
+        subject: "Verify your State Swad account",
+        message
+    }).catch(err => console.error("Email error:", err));
 
-    } catch (error) {
-
-        user.emailVerifyToken = undefined;
-        user.emailVerifyExpire = undefined;
-
-        await user.save({ validateBeforeSave: false });
-
-        return next(new HandleError("Email could not be sent", 500));
-    }
+    res.status(200).json({
+        success: true,
+        message: `Verification email sent to ${user.email}`
+    });
 
 });
 
@@ -104,6 +108,8 @@ This link will expire in 15 minutes.
 VERIFY EMAIL
 ================================
 */
+
+
 export const verifyEmail = handleAsyncError(async (req, res, next) => {
 
     const token = crypto
@@ -157,7 +163,29 @@ export const loginUser = handleAsyncError(async (req, res, next) => {
     }
 
     if (!user.emailVerified) {
-        return next(new HandleError("Please verify your email first", 401));
+
+        const verifyToken = user.generateEmailVerifyToken();
+        await user.save({ validateBeforeSave: false });
+
+        const verifyURL = `https://stateswad.vercel.app/verify-email/${verifyToken}`;
+
+        const message = `
+        <h2>Email Verification</h2>
+        <p>Please verify your email:</p>
+
+        <a href="${verifyURL}"
+        style="padding:12px 20px;background:#c49a2c;color:white;text-decoration:none;border-radius:5px;">
+        Verify Email
+        </a>
+    `;
+
+        sendEmail({
+            email: user.email,
+            subject: "Verify your State Swad account",
+            message
+        }).catch(err => console.log(err));
+
+        return next(new HandleError("Email not verified. Verification email sent again.", 401));
     }
 
     sendToken(user, 200, res);
