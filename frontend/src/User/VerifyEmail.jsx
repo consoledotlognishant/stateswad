@@ -20,10 +20,15 @@ function VerifyEmail() {
                     localStorage.setItem("token", data.token);
 
                     navigate("/");
+
                 }
 
             } catch (error) {
-                console.log(error);
+
+                console.error(error);
+
+                navigate("/login");
+
             }
 
         };
@@ -32,7 +37,12 @@ function VerifyEmail() {
 
     }, [token, navigate]);
 
-    return <h2>Verifying your email...</h2>;
+    return (
+        <div style={{ textAlign: "center", marginTop: "100px" }}>
+            <h2>Verifying your email...</h2>
+            <p>Please wait while we activate your account.</p>
+        </div>
+    );
 }
 
 export default VerifyEmail;

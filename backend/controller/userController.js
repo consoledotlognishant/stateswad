@@ -20,8 +20,18 @@ export const registerUser = handleAsyncError(async (req, res, next) => {
     // Check existing user
     const existingUser = await User.findOne({ email });
 
+
+
     if (existingUser) {
-        return next(new HandleError("User already exists with this email", 400));
+
+        if (!existingUser.emailVerified) {
+            return res.status(400).json({
+                success: false,
+                message: "Email not verified. Please check your email."
+            });
+        }
+
+        return next(new HandleError("User already exists", 400));
     }
 
     // Upload avatar if provided

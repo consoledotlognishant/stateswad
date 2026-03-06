@@ -68,10 +68,17 @@ function Register() {
 
     useEffect(() => {
         if (success) {
-            toast.success("Registration Successful", { position: 'top-center', autoClose: 3000 });
+
+            toast.success(
+                "Verification email sent. Please check your email.",
+                { position: "top-center", autoClose: 4000 }
+            );
+
             dispatch(removeSuccess());
-            navigate('/login');
+
+            navigate("/login");
         }
+
     }, [dispatch, success, navigate]);
 
     return (
