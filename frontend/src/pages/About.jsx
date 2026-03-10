@@ -23,7 +23,7 @@ function About() {
                 />
 
                 <h2>Nishant kumar</h2>
-                <span className="founder-role">Founder • Vision & Technology</span>
+                <span className="founder-role">Vision & Technology</span>
 
                 <p className="founder-main-p">
                     Hello everyone, I’m Nishant — a Bihar-born engineering student studying in Odisha.
@@ -46,7 +46,7 @@ function About() {
             </section>
 
             {/* ===== CO FOUNDERS ===== */}
-            <section className="cofounders-section">
+            {/* <section className="cofounders-section">
                 <div className="cofounder">
                     <img src="/images/image.png" className="founder-main-img" alt="Ashutosh Nayak" />
                     <h3>Ashutosh Nayak</h3>
@@ -72,7 +72,7 @@ function About() {
                         LinkedIn
                     </a>
                 </div>
-            </section>
+            </section> */}
 
             {/* ===== STRONG STORY ===== */}
             <section className="story-section">
