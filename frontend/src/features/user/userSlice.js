@@ -1,25 +1,24 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import API from "../../utils/api";
 
-// Register API
 export const register = createAsyncThunk(
-    'user/register',
+    "user/register",
     async (userData, { rejectWithValue }) => {
         try {
+
             const { data } = await API.post(
-                '/api/v1/register',
-                userData,
-                {
-                    headers: {
-                        'Content-Type': 'multipart/form-data'
-                    }
-                }
+                "/api/v1/register",
+                userData
             );
+
             return data;
+
         } catch (error) {
+
             return rejectWithValue(
-                error.response?.data || 'Registration failed. Please try again later'
+                error.response?.data || "Registration failed"
             );
+
         }
     }
 );
