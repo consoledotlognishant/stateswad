@@ -14,6 +14,7 @@ REGISTER USER
 ================================
 */
 export const registerUser = handleAsyncError(async (req, res, next) => {
+    console.log("REGISTER BODY:", req.body);
 
     const { name, email, password, avatar } = req.body;
 
