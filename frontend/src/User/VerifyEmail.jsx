@@ -1,11 +1,14 @@
 import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import API from "../utils/api";
+import { loadUser } from "../features/user/userSlice";
 
 function VerifyEmail() {
 
     const { token } = useParams();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     useEffect(() => {
 
@@ -17,8 +20,13 @@ function VerifyEmail() {
 
                 if (data.success) {
 
+                    // Save token
                     localStorage.setItem("token", data.token);
 
+                    // Load user into Redux (VERY IMPORTANT)
+                    dispatch(loadUser());
+
+                    // Redirect to home
                     navigate("/");
 
                 }
@@ -35,7 +43,7 @@ function VerifyEmail() {
 
         verify();
 
-    }, [token, navigate]);
+    }, [token, navigate, dispatch]);
 
     return (
         <div style={{ textAlign: "center", marginTop: "100px" }}>
