@@ -63,10 +63,10 @@ function Payment() {
     try {
       setProcessing(true)
 
-      const { data: keyData } = await API.get('/getKey');
+      const { data: keyData } = await API.get('/api/v1/getKey');
       const { key } = keyData;
 
-      const { data: orderData } = await API.post('/payment/process', { amount });
+      const { data: orderData } = await API.post('/api/v1/payment/process', { amount });
       const { order } = orderData
 
       const options = {

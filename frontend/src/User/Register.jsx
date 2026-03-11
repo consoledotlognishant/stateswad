@@ -170,6 +170,11 @@ function Register() {
                             <Link to="/login"> Sign In</Link>
                         </div>
 
+                        <div className="email-verification-warning">
+                            ⚠️ Verification email may land in your <b>Spam</b> folder.
+                            Please check it if you don’t see it in your inbox.
+                        </div>
+
                     </form>
                 </div>
             </div>
