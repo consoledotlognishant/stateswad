@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import CheckoutPath from './CheckoutPath';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'
+import API from '../utils/api'
 import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { createOrder } from '../features/order/orderSlice';
@@ -63,10 +63,10 @@ function Payment() {
     try {
       setProcessing(true)
 
-      const { data: keyData } = await axios.get('/api/v1/getKey');
+      const { data: keyData } = await API.get('/getKey');
       const { key } = keyData;
 
-      const { data: orderData } = await axios.post('/api/v1/payment/process', { amount });
+      const { data: orderData } = await API.post('/payment/process', { amount });
       const { order } = orderData
 
       const options = {
@@ -124,9 +124,9 @@ function Payment() {
           >
             💳 Pay Online
           </button>
-
+          <br />
           <button
-            className="cod-btn"
+            className="premium-pay-btn"
             onClick={createCODOrder}
             disabled={processing}
           >

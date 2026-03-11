@@ -28,7 +28,7 @@ export const registerUser = handleAsyncError(async (req, res, next) => {
         if (!existingUser.emailVerified) {
             return res.status(400).json({
                 success: false,
-                message: "Email not verified. Please check your email."
+                message: "Email not verified. Please check your email in SPAM section."
             });
         }
 
