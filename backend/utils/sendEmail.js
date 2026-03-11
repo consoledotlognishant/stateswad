@@ -9,7 +9,7 @@ export const sendEmail = async ({ email, subject, message }) => {
 
         const msg = {
             to: email,
-            from: process.env.SENDGRID_EMAIL, // verified sender email in SendGrid
+            from: "State Swad by Nishant <nishantkumar6205003458@gmail.com>",
             subject: subject,
             html: message,
         };
