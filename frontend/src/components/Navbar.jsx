@@ -8,7 +8,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import '../componentStyles/Navbar.css';
 import { useSelector } from 'react-redux';
 
-import UserDashboard from "../components/UserDashboard";
+import UserDashboard from "../User/UserDashboard";
 
 function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
