@@ -421,3 +421,213 @@ body {
     line-height: 1.9;
     color: #555;
 }
+
+/* =========================================
+   DONATE PAGE RESPONSIVE DESIGN
+   ========================================= */
+
+
+/* ---------- Small Laptops ---------- */
+@media (max-width: 1200px) {
+
+    .donate-hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .mission-container,
+    .festival-container {
+        gap: 3rem;
+    }
+
+    .mission-content h2,
+    .festival-content h2 {
+        font-size: 2.2rem;
+    }
+
+    .donate-box {
+        padding: 4rem 6%;
+    }
+
+}
+
+
+/* ---------- Tablets ---------- */
+@media (max-width: 900px) {
+
+    .donate-hero {
+        padding: 4rem 2rem;
+    }
+
+    .donate-hero h1 {
+        font-size: 2.3rem;
+    }
+
+    .donate-hero p {
+        font-size: 1rem;
+    }
+
+    /* Mission section stack */
+    .mission-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .mission-image,
+    .mission-content {
+        width: 100%;
+    }
+
+    .mission-content h2 {
+        font-size: 2rem;
+    }
+
+    /* Festival section stack */
+    .festival-container {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .festival-content h2 {
+        font-size: 2rem;
+    }
+
+    .festival-highlights {
+        align-items: center;
+    }
+
+    /* Gallery */
+    .gallery-grid img {
+        width: 250px;
+        height: 380px;
+    }
+
+    /* Donate Box */
+    .donate-box h2 {
+        font-size: 2.1rem;
+    }
+
+}
+
+
+/* ---------- Large Mobile ---------- */
+@media (max-width: 600px) {
+
+    .donate-hero h1 {
+        font-size: 1.9rem;
+    }
+
+    .donate-hero p {
+        font-size: 0.95rem;
+    }
+
+    .mission-content p,
+    .festival-content p {
+        font-size: 0.95rem;
+    }
+
+    .mission-content h2,
+    .festival-content h2 {
+        font-size: 1.7rem;
+    }
+
+    /* Gallery grid smaller */
+    .gallery-grid {
+        gap: 1rem;
+    }
+
+    .gallery-grid img {
+        width: 200px;
+        height: 320px;
+    }
+
+    /* Donate box */
+    .donate-box {
+        padding: 3rem 1.5rem;
+    }
+
+    .donate-box input {
+        width: 100%;
+    }
+
+    .quick-amounts button {
+        padding: 0.6rem 1.2rem;
+    }
+
+    .donate-btn {
+        width: 100%;
+    }
+
+    /* Transparency */
+    .donate-transparency h2 {
+        font-size: 1.8rem;
+    }
+
+    .donate-transparency li {
+        font-size: 0.95rem;
+    }
+
+    /* Impact section */
+    .impact-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .impact-section p {
+        font-size: 0.95rem;
+    }
+
+}
+
+
+/* ---------- Small Mobile ---------- */
+@media (max-width: 480px) {
+
+    .donate-hero h1 {
+        font-size: 1.6rem;
+    }
+
+    .donate-hero p {
+        font-size: 0.9rem;
+    }
+
+    .mission-content h2,
+    .festival-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .mission-content p,
+    .festival-content p {
+        font-size: 0.9rem;
+    }
+
+    .gallery-grid img {
+        width: 170px;
+        height: 260px;
+    }
+
+    .donate-box h2 {
+        font-size: 1.6rem;
+    }
+
+    .donate-box input {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+
+    .quick-amounts {
+        gap: 0.5rem;
+    }
+
+    .quick-amounts button {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .donate-transparency li {
+        font-size: 0.9rem;
+    }
+
+    .donate-contact h3 {
+        font-size: 1.3rem;
+    }
+
+}
